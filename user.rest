@@ -10,3 +10,6 @@ Content-Type: application/json
     "name": "CHuku",
     "email": "Chuku"
 }
+###
+
+GET http://localhost:3700/:b14e192a-1b2a-4846-93f8-0f50a008fd85 HTTP/1.1

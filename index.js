@@ -8,7 +8,6 @@ const port = process.env.PORT || 3700;
 app.use(json());
 app.use('/', user);
 
-
 // calling the routes
 // app.get('/', (req, res)=>{
 //     res.send('hello');

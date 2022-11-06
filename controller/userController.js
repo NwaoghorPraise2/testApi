@@ -22,28 +22,31 @@ let getUser = async (req, res) =>{
         const user = Users.find((user) => user.id === id);
         res.status(200).json ({
             message:'User FOUND',
-            user
+            user,
         });
     } catch (err) {
         console.log(err.message);
         
     }
 
-}
+};
 
-let createUsers = async (req,res) => {
+//Post Request to created user
+let createUsers = async (req, res) => {
     try {
-        const user = await req.body;
+        const { name, email } = await req.body;
+        const newUser = {
+            id: uuid(),
+            name,
+            email
+        };
         
-        user.id = uuid();
-        
-        Users.push(user);
-        
+        Users.push(newUser);
         res.status(200).json({
             message:'User Created',
-            user
+            newUser
         });
-    } catch (err){
+    } catch (err) {
         res.status(500).json({
             message: err.message
         });
@@ -51,9 +54,28 @@ let createUsers = async (req,res) => {
 };
 
 
+//update /edit user 
+
+let updateUser = async (req, res) => {
+    try {
+        let id = req.params.id;
+        const user = Users.find((user) => user.id === id);
+        const { name, email } = await req.body;
+        user.name = name;
+        user.email = email;
+        res.status(200).json({
+            message: 'User Updated',
+            user
+        });
+    } catch (error) {
+        res.status(500).json({message: err.message})
+    }
+}
+
+
 module.exports = {
     getUsers,
     createUsers,
-    getUser
-
+    getUser,
+    updateUser
 };
