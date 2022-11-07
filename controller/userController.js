@@ -18,17 +18,15 @@ let getUsers = async (req, res) => {
 
 let getUser = async (req, res) => {
     try {
-        let id = req.params.id;
-        const user = Users.find((user) => user.id === id);
+        let id = await req.params.id;
+        const foundUser = Users.find((user) => id === user.id);
         res.status(200).json ({
-            message:'User FOUND',
-            user: user,
+            message:`User FOUND`,
+            foundUser
         });
     } catch (err) {
         console.log(err.message);
-        
     }
-
 };
 
 //Post Request to created user
@@ -68,9 +66,9 @@ let updateUser = async (req, res) => {
             user
         });
     } catch (error) {
-        res.status(500).json({message: err.message})
+        res.status(500).json({message: err.message});
     }
-}
+};
 
 
 module.exports = {

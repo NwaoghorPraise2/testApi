@@ -7,9 +7,18 @@ POST http://localhost:3700 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "CHuku",
+    "name": "CHuku1",
     "email": "Chuku"
 }
 ###
 
-GET http://localhost:3700/:b14e192a-1b2a-4846-93f8-0f50a008fd85 HTTP/1.1
+GET http://localhost:3700/6f67a069-488f-44b5-a38d-8c8ddbd28786 HTTP/1.1
+
+#####################
+PUT http://localhost:3700 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "CHuku1",
+    "email": "Chuku"
+}
