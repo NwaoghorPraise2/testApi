@@ -70,10 +70,25 @@ let updateUser = async (req, res) => {
     }
 };
 
+//Delete User
+let deleteUser = async (req, res) => {
+    try {
+        let id = req.params.id;
+        const user = User.find((user) => user.id === id);
+        Users.splice(Users.indexOf(user), 1);
+        res.status(200).json({
+            message: "user don delete",
+            user
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message});
+    }
+};
 
 module.exports = {
     getUsers,
     createUsers,
     getUser,
-    updateUser
+    updateUser,
+    deleteUser
 };
