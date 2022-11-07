@@ -16,13 +16,13 @@ let getUsers = async (req, res) => {
 
 //get single user
 
-let getUser = async (req, res) =>{
+let getUser = async (req, res) => {
     try {
         let id = req.params.id;
         const user = Users.find((user) => user.id === id);
         res.status(200).json ({
             message:'User FOUND',
-            user,
+            user: user,
         });
     } catch (err) {
         console.log(err.message);
