@@ -74,7 +74,7 @@ let updateUser = async (req, res) => {
 let deleteUser = async (req, res) => {
     try {
         let id = req.params.id;
-        const user = User.find((user) => user.id === id);
+        const user = Users.find((user) => id === user.id);
         Users.splice(Users.indexOf(user), 1);
         res.status(200).json({
             message: "user don delete",

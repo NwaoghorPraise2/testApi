@@ -7,7 +7,7 @@ POST http://localhost:3700 HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "CHuku1",
+    "name": "CHuku241",
     "email": "Chuku"
 }
 ###
@@ -22,3 +22,6 @@ Content-Type: application/json
     "name": "NweCHuku1",
     "email": "NweeChuku"
 }
+
+###
+DELETE http://localhost:3700/beddf587-159e-4e22-8baf-5f28d47f1c12 HTTP/1.1
